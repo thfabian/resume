@@ -1,0 +1,123 @@
+% Identification
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{contact}[2016/04/05 Title with contact information]
+
+
+% Preliminary Declarations
+\RequirePackage{kvoptions}
+\RequirePackage{multicol}
+\RequirePackage{hyperref}
+\RequirePackage{relsize}
+\RequirePackage[utf8]{inputenc}
+
+\newcommand*{\name}[1]{
+    \gdef\@name{\textbf{\textsc{\Large #1}}}
+}
+
+\newcommand*{\email}[1]{
+    \gdef\@email{\href{mailto:#1}{#1}}
+}
+
+\newcommand*{\phone}[1]{
+    \gdef\@phone{#1}
+}
+
+\newcommand*{\github}[1]{
+    \gdef\@github{\href{#1}{#1}}
+}
+
+\newcommand*{\linkedin}[1]{
+    \gdef\@linkedin{\href{#1}{#1}}
+}
+
+\newcommand*{\nationality}[1]{
+    \gdef\@nationality{#1}
+}
+
+\newcommand*{\dateofbirth}[1]{
+    \gdef\@dateofbirth{#1}
+}
+
+\newcommand*{\currentaddress}[2]{
+    \gdef\@currentaddressone{#1}
+    \gdef\@currentaddresstwo{#2}
+}
+\newcommand*{\permanentaddress}[2]{
+    \gdef\@permanentaddressone{#1}
+    \gdef\@permanentaddresstwo{#2}
+}
+
+
+% Options
+
+\DeclareStringOption[1]{columns}
+\ProcessKeyvalOptions*
+
+
+% More declarations
+
+\ifcase\contact@columns
+\or
+    % Single-column title
+    \renewcommand{\maketitle}{
+
+        \begin{center}
+
+            \@name
+
+            \@currentaddressone, \@currentaddresstwo
+            
+            Nationality: \@nationality
+
+            \@email --- \@phone
+
+            \@github --- \@linkedin
+
+        \end{center}
+
+        \vspace{-14pt}
+    }
+\or
+    % Double-column title
+    \renewcommand{\maketitle}{
+
+        \begin{center}
+
+            \@name
+
+            \@github
+            
+            \@linkedin
+
+        \end{center}
+
+        \vspace{-12pt}
+
+        \begin{multicols}{2}
+
+            \begin{flushleft}
+
+                \textbf{Current Address}
+
+                \@currentaddressone
+
+                \@currentaddresstwo
+
+            \end{flushleft}
+
+            \columnbreak
+
+            \begin{flushright}
+
+                \textbf{Contact Information}
+                
+                \@email
+
+                \@phone
+
+            \end{flushright}
+
+        \end{multicols}
+    }
+\fi

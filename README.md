@@ -1,2 +1,3 @@
-# resume
-My personal resume/cv
+# Resume/CV
+
+My personal resume/CV, nothing to see here! Keep walking :)
