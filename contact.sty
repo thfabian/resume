@@ -5,11 +5,14 @@
 
 
 % Preliminary Declarations
-\RequirePackage{kvoptions}
-\RequirePackage{multicol}
-\RequirePackage{hyperref}
-\RequirePackage{relsize}
-\RequirePackage[utf8]{inputenc}
+\usepackage{kvoptions}
+\usepackage{multicol}
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks,breaklinks,
+            urlcolor=NavyBlue}
+\usepackage{relsize}
+\usepackage[utf8]{inputenc}
 
 \newcommand*{\name}[1]{
     \gdef\@name{\textbf{\textsc{\Large #1}}}
