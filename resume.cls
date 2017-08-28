@@ -1,7 +1,7 @@
 % Identification
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{resume}[2016/10/23 My custom résumé class]
+\ProvidesClass{resume}[2016/10/23 My custom resume class]
 
 
 % Preliminary Declarations
